@@ -1,7 +1,8 @@
 import "../styles/globals.css";
 import Head from "next/head";
+import { wrapper } from "@/src/store/store";
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
     <>
       <Head>
@@ -13,3 +14,9 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
+
+export default wrapper.withRedux(App);
+/* 
+wrapper 로 App 컴포넌트를 감싸준다.
+브라우저의 redux 상태 동기화는 물론, Provider store 까지 알아서 주입해준다.
+*/
