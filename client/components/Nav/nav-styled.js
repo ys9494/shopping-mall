@@ -7,6 +7,7 @@ export const NavWrapper = styled.div`
   flex-wrap: wrap;
   height: 40px;
   align-items: flex-end;
+  padding-bottom: 10px;
 `;
 
 export const LocalNav = styled.ul`
@@ -26,7 +27,6 @@ export const GlobalNavWrapper = styled.div`
 export const GlobalNav = styled.ul`
   display: flex;
   li {
-    position: relative;
     display: block;
     width: 24px;
     height: 24px;
@@ -39,8 +39,8 @@ export const GlobalNav = styled.ul`
 
 export const SearchInput = styled.label`
   display: flex;
-  div {
-    position: relative;
+  span {
+    display: block;
     width: 24px;
     height: 24px;
     cursor: pointer;
