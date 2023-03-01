@@ -1,7 +1,7 @@
 import createSagaMiddleware from "redux-saga";
 import { createWrapper } from "next-redux-wrapper";
 import { applyMiddleware, compose, configureStore } from "@reduxjs/toolkit";
-import reducer from "./reducers";
+// import reducer from "./reducers";
 import rootReducer from "./reducers";
 import rootSaga from "./sagas/index";
 import { composeWithDevTools } from "redux-devtools-extension";

@@ -28,6 +28,7 @@ export const BannerItem = styled.div`
     span {
       font-weight: bold;
       font-size: 1.1rem;
+      color: #fff;
     }
   }
 

@@ -69,19 +69,29 @@ const Nav = () => {
       <GlobalNavWrapper>
         <SearchInput>
           <input type="text" placeholder="search" />
-          <div>
-            <Image src={"/img/search.svg"} fill alt="search" />
-          </div>
+          <span>
+            <Image
+              src={"/img/search.svg"}
+              alt="search"
+              width={24}
+              height={24}
+            />
+          </span>
         </SearchInput>
         <GlobalNav>
           <li>
             <Link href="/login">
-              <Image src={"/img/account.svg"} fill alt="search" />
+              <Image
+                src={"/img/account.svg"}
+                alt="search"
+                width={24}
+                height={24}
+              />
             </Link>
           </li>
           <li>
             <Link href="/">
-              <Image src={"/img/bag.svg"} fill alt="search" />
+              <Image src={"/img/bag.svg"} alt="search" width={24} height={24} />
             </Link>
           </li>
         </GlobalNav>

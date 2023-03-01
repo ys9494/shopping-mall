@@ -9,8 +9,7 @@ export const HeaderWrapper = styled.div`
 
 export const LogoWrapper = styled.div`
   width: 100px;
-  height: 48px;
-  position: relative;
+  height: 60px;
   img {
     object-fit: contain;
   }

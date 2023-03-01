@@ -7,10 +7,10 @@
   padding: 0;
   font-family: "Lato", "Noto Sans KR", sans-serif;
   color: #000;
+  box-sizing: border-box;
 }
 html,
 body {
-  box-sizing: border-box;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1;
