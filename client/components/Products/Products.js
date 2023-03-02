@@ -3,20 +3,21 @@ import { ProductsWrapper } from "./products-styled";
 import Router from "next/router";
 import { ROUTE_PATH } from "@/utils/routes";
 
-const Products = ({ category }) => {
-  const cate = ["all", "tees", "outwear"];
+const Products = ({ cateItems }) => {
+  // const cate = ["all", "tees", "outwear"];
 
   useLayoutEffect(() => {
-    console.log("cat", category);
+    console.log("cat", cateItems);
 
-    // if (!cate.find((item) => item === category)) {
-    //   Router.push(ROUTE_PATH.PRODUCTS + "ALL");
-    // }
-  }, [category]);
+    if (cateItems.length < 1) {
+      // Router.push(ROUTE_PATH.PRODUCTS + "?category=ALL");
+      console.log("없음");
+    }
+  }, [cateItems]);
 
   return (
     <ProductsWrapper>
-      <h2>{category}</h2>
+      <h2>cate</h2>
       <div>Products</div>
     </ProductsWrapper>
   );
