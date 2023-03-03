@@ -5,8 +5,12 @@ import { InputWrapper, Button } from "../Common/common-styled";
 // import { useUserDispatch } from "../../context/UserContext";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [loginInput, setLoginInput] = useState({
+    email: "",
+    password: "",
+  });
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
   const passwordRef = useRef();
   //   const navigate = useNavigate();
@@ -47,8 +51,10 @@ const Login = () => {
           <input
             type="email"
             required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={loginInput.email}
+            onChange={(e) =>
+              setLoginInput({ ...loginInput, email: e.target.value })
+            }
             placeholder="이메일을 입력하세요"
           />
         </InputWrapper>
@@ -57,8 +63,10 @@ const Login = () => {
           <input
             type="password"
             required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={loginInput.password}
+            onChange={(e) =>
+              setLoginInput({ ...loginInput, password: e.target.value })
+            }
             ref={passwordRef}
             placeholder="비밀번호를 입력하세요"
           />

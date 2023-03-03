@@ -63,13 +63,13 @@ export const MainNav = styled.li`
     font-weight: bold;
   }
   &:hover > ul {
-    opacity: 1;
+    display: block;
   }
 `;
 
 export const SubNav = styled.ul`
   padding-left: 5px;
-  opacity: 0;
+  display: none;
   background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
   z-index: 2;

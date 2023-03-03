@@ -13,4 +13,5 @@ export const LogoWrapper = styled.div`
   img {
     object-fit: contain;
   }
+  text-align: center;
 `;
