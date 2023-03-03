@@ -17,10 +17,16 @@ import Link from "next/link";
  */
 
 const Signup = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [signupInput, setSignupInput] = useState({
+    name: "",
+    email: "",
+    password: "",
+    passwordConfirm: "",
+  });
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const [isPwMatch, setIsPwMatch] = useState(true);
   const [isNameValid, setIsNameValid] = useState(false);
@@ -40,23 +46,25 @@ const Signup = () => {
   /** 이름 유효성 검사 */
   const checkName = (e) => {
     const nameRegex = /^[가-힣]{2,6}$/;
-    setName(e.target.value);
+    setSignupInput({ ...signupInput, name: e.target.value });
     setIsNameValid(nameRegex.test(e.target.value));
   };
   /** 이메일 유효성 검사 */
   const checkEmail = (e) => {
     const emailRegex =
       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-    setEmail(e.target.value);
+    setSignupInput({ ...signupInput, email: e.target.value });
     setIsEmailValid(emailRegex.test(e.target.value));
   };
 
   /** 비밀번호 유효성 검사 */
   useEffect(() => {
-    if (password && passwordConfirm) {
-      password === passwordConfirm ? setIsPwMatch(true) : setIsPwMatch(false);
+    if (signupInput.password && signupInput.passwordConfirm) {
+      signupInput.password === signupInput.passwordConfirm
+        ? setIsPwMatch(true)
+        : setIsPwMatch(false);
     }
-  }, [password, passwordConfirm]);
+  }, [signupInput.password, signupInput.passwordConfirm]);
 
   /** 회원가입 API */
   // const signupAPI = async (userData) => {
@@ -103,12 +111,12 @@ const Signup = () => {
           <input
             type="text"
             required
-            value={name}
+            value={signupInput.name}
             onChange={checkName}
             ref={nameRef}
             placeholder="이름을 입력하세요(2 - 6글자)"
           />
-          {name
+          {signupInput.name
             ? isNameValid || (
                 <InvalidMessage>{InvalidMessages.name}</InvalidMessage>
               )
@@ -119,12 +127,12 @@ const Signup = () => {
           <input
             type="text"
             required
-            value={email}
+            value={signupInput.email}
             onChange={checkEmail}
             ref={emailRef}
             placeholder="이메일을 입력하세요"
           />
-          {email
+          {signupInput.email
             ? isEmailValid || (
                 <InvalidMessage>{InvalidMessages.email}</InvalidMessage>
               )
@@ -136,8 +144,10 @@ const Signup = () => {
             type="password"
             required
             minLength="8"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={signupInput.password}
+            onChange={(e) =>
+              setSignupInput({ ...signupInput, password: e.target.value })
+            }
             placeholder="비밀번호를 입력하세요(8글자 이상)"
           />
         </InputWrapper>
@@ -147,8 +157,13 @@ const Signup = () => {
             type="password"
             required
             minLength="8"
-            value={passwordConfirm}
-            onChange={(e) => setPasswordConfirm(e.target.value)}
+            value={signupInput.sswordConfirm}
+            onChange={(e) =>
+              setSignupInput({
+                ...signupInput,
+                passwordConfirm: e.target.value,
+              })
+            }
             ref={pwRef}
             placeholder="비밀번호를 한 번 더 입력하세요"
           />

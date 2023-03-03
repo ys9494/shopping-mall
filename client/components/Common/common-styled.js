@@ -15,6 +15,10 @@ export const InputWrapper = styled.div`
     height: 40px;
     padding-left: 10px;
     font-size: 0.9rem;
+    border: 1px solid #ddd;
+  }
+  input:focus {
+    border: 1px solid black;
   }
 `;
 

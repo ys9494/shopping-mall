@@ -1,7 +1,9 @@
 import { useEffect, useLayoutEffect } from "react";
-import { ProductsWrapper } from "./products-styled";
 import Router from "next/router";
 import { ROUTE_PATH } from "@/utils/routes";
+import ProductList from "./ProductList";
+import ProductItem from "./ProductItem";
+import { ProductsWrapper, ProductListWrapper } from "./products-styled";
 
 const Products = ({ cateItems }) => {
   // const cate = ["all", "tees", "outwear"];
@@ -10,7 +12,7 @@ const Products = ({ cateItems }) => {
     console.log("cat", cateItems);
 
     if (cateItems.length < 1) {
-      // Router.push(ROUTE_PATH.PRODUCTS + "?category=ALL");
+      Router.push(ROUTE_PATH.PRODUCTS + "?category=all");
       console.log("없음");
     }
   }, [cateItems]);
@@ -18,7 +20,11 @@ const Products = ({ cateItems }) => {
   return (
     <ProductsWrapper>
       <h2>cate</h2>
-      <div>Products</div>
+      <ProductListWrapper>
+        {cateItems?.map((item) => (
+          <ProductItem key={item.id} {...item} />
+        ))}
+      </ProductListWrapper>
     </ProductsWrapper>
   );
 };

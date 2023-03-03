@@ -7,13 +7,14 @@ const Header = () => {
     <HeaderWrapper>
       <LogoWrapper>
         <Link href="/">
-          <Image
+          {/* <Image
             src="/img/logo.png"
             alt="logo image"
             width={100}
             height={60}
             priority={true}
-          />
+          /> */}
+          LOGO
         </Link>
       </LogoWrapper>
     </HeaderWrapper>

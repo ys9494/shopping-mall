@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MainWrapper, Banner, BannerItem } from "./main-styled";
+import { ROUTE_PATH } from "@/utils/routes";
 
 const Main = () => {
   const bgImgs = [
@@ -13,22 +14,22 @@ const Main = () => {
     <MainWrapper>
       <Banner>
         <BannerItem bg={bgImgs[0]}>
-          <Link href="/new">
+          <Link href={ROUTE_PATH.PRODUCTS + "?category=new"}>
             <span>NEW</span>
           </Link>
         </BannerItem>
         <BannerItem bg={bgImgs[1]}>
-          <Link href="/sweats">
+          <Link href={ROUTE_PATH.PRODUCTS + "?category=sweats"}>
             <span>SWEATS</span>
           </Link>
         </BannerItem>
         <BannerItem bg={bgImgs[2]}>
-          <Link href="/pants">
+          <Link href={ROUTE_PATH.PRODUCTS + "?category=pants"}>
             <span>PANTS</span>
           </Link>
         </BannerItem>
         <BannerItem bg={bgImgs[3]}>
-          <Link href="/acc">
+          <Link href={ROUTE_PATH.PRODUCTS + "?category=acc"}>
             <span>ACC</span>
           </Link>
         </BannerItem>
